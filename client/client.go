@@ -13,7 +13,7 @@ import (
 var DNSName string
 
 func resolver(domain string, qtype uint16) []dns.RR {
-	//ONLY FOR LINUX
+	//ONLY FOR LINUX AND MACOS
 	config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")
 
     m := new(dns.Msg)
