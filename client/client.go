@@ -49,9 +49,24 @@ func sending(message string) string{
 	crc := integrityCheck(message)
 	startingToken := ".ZG5zZXJjX3N0YXJ0X21lc3NhZ2Ug."
 
+	// Send Init message
 	init_resp := resolver(crc+startingToken+DNSName, dns.TypeA)
 	fmt.Println(init_resp)
 	
+	// Sending data
+	var result []string
+	lenght := 63
+	for len(message) > 0 {
+		if len(message) < lenght {
+			result = append(result, message)
+			break
+		}
+		result = append(result, message[:lenght])
+		message = message[lenght:]
+	}
+
+	fmt.Println(result)
+
 	return ""
 }
 
@@ -65,7 +80,7 @@ func main() {
 		line := scanner.Text()
 		message += line + "\n"
 	}
-	message = base64.StdEncoding.EncodeToString([]byte(message))
+	message = base64.StdEncoding.EncodeToString([]byte(message + " ")) // space for "=" escape
 
 	if err := scanner.Err(); err != nil {
         fmt.Fprintln(os.Stderr, "Reading error:", err)
