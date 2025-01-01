@@ -45,7 +45,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/fedoik/dnser">
-    <img src="imgs/dnser.png" alt="Logo" width="120" height="120">
+    <img src="imgs/dnser.png" alt="Logo" width="160" height="120">
   </a>
 
   <h3 align="center">dnser</h3>
@@ -97,9 +97,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[project_idea](./imgs/dnser_schema.png)
-
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
+![project_idea](./imgs/dnser_schema.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
