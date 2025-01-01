@@ -1,15 +1,3 @@
-# DNSER
-
-![dnser_schema](./imgs/dnser_schema.png)
-
-## фичи
-
-1. сервер билдит клиента передав аргументы в него из конфига
-2. проверка CRC сумма
-3. 
-
-<!-- ttt -->
-
 
 
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
