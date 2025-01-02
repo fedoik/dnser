@@ -124,17 +124,17 @@ go version >= 1.21.5
    git clone https://github.com/fedoik/dnser.git
    ```
 2. Go to folder
-  ```sh
-  cd dnser/src/
-  ```
+   ```sh
+   cd dnser/src/
+   ```
 3. Install go packages
    ```sh
    go mod tidy
    ```
 3. Build the server binary
-  ```sh
+   ```sh
     #TODO
-  ```
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
