@@ -25,8 +25,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -94,13 +92,13 @@
 ### Built With
 
 * [![Go][Go.i]][Go-url]
-* [![React][React.js]][React-url]
+<!-- * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![JQuery][JQuery.com]][JQuery-url] -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,37 +107,30 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This section explains how to install the utility.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+go version >= 1.21.5
+* go
   ```sh
-  npm install npm@latest -g
+  go version
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/fedoik/dnser.git
    ```
-3. Install NPM packages
+2. Install go packages
    ```sh
-   npm install
+   go mod tidy
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+3. Build the server binary
+  ```sh
+  #TODO
+  ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,9 +139,9 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Before you start using it, you need to build the client binary, after which you can up the server.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [SOON](SOON)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,7 +155,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/fedoik/dnser/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,8 +179,8 @@ Don't forget to give the project a star! Thanks again!
 
 ### Top contributors:
 
-<a href="https://github.com/github_username/repo_name/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
+<a href="https://github.com/fedoik/dnser/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fedoik/dnser" alt="contrib.rocks image" />
 </a>
 
 
@@ -208,7 +199,7 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/fedoik/dnser](https://github.com/fedoik/dnser)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -231,16 +222,16 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [Go.i]: https://img.shields.io/badge/Go-00ADD8?logo=Go&logoColor=white&style=for-the-badge
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/fedoik/dnser.svg?style=for-the-badge
+[contributors-url]: https://github.com/fedoik/dnser/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/fedoik/dnser.svg?style=for-the-badge
+[forks-url]: https://github.com/fedoik/dnser/network/members
+[stars-shield]: https://img.shields.io/github/stars/fedoik/dnser.svg?style=for-the-badge
+[stars-url]: https://github.com/fedoik/dnser/stargazers
+[issues-shield]: https://img.shields.io/github/issues/fedoik/dnser.svg?style=for-the-badge
+[issues-url]: https://github.com/fedoik/dnser/issues
+[license-shield]: https://img.shields.io/github/license/fedoik/dnser.svg?style=for-the-badge
+[license-url]: https://github.com/fedoik/dnser/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
