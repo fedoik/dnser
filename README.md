@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/fedoik/dnser">
-    <img src="imgs/dnser.png" alt="Logo" width="160" height="120">
+    <img src="imgs/dnser.png" alt="Logo" width="220" height="220">
   </a>
 
   <h3 align="center">dnser</h3>
