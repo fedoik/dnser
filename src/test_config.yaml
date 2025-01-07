@@ -1,0 +1,6 @@
+server:
+  port: 123123
+  domain: evil.oanz.com
+
+client:
+  projectDir: /tmp/development/dnser/src/ 

@@ -1,4 +1,4 @@
-module dnser
+module dnser_client
 
 go 1.21.5
 
