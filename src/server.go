@@ -10,6 +10,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"gopkg.in/yaml.v3"
+	"github.com/miekg/dns"
 )
 
 
@@ -61,6 +62,21 @@ func buildClient(domain string, projectDir string) error {
 	return nil
 }
 
+func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg) {
+	// Log the received query
+	for _, question := range r.Question {
+		log.Printf("Received query for: %s", question.Name)
+	}
+
+	// Create a response
+	m := new(dns.Msg)
+	m.SetReply(r)
+	m.Compress = false // Disable compression for simplicity
+
+	// Respond with an empty answer
+	w.WriteMsg(m)
+}
+
 func main() {
 	banner := `    __
 .--|  |.-----..-----..-----..----.
@@ -103,7 +119,14 @@ func main() {
 	}
 
 	if *serve {
+		dns.HandleFunc(".", handleDNSRequest) // Handle all queries
 
+		server := &dns.Server{Addr: fmt.Sprintf(":%d", config.Server.Port), Net: "udp"}
+
+		log.Printf("[+]Starting DNS server on port %d...", config.Server.Port)
+		if err := server.ListenAndServe(); err != nil {
+			log.Fatalf("[X]Failed to start server: %s\n", err.Error())
+		}
 	}
 
 }
