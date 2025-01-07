@@ -52,12 +52,12 @@ func buildClient(domain string, projectDir string) error {
 		return err
 	}
 
-	cmdBuild := exec.Command("go", "build", fmt.Sprintf("-ldflags=-X 'main.DNSName=%s'", domain),"client.go")
+	cmdBuild := exec.Command("go", "build", fmt.Sprintf("-ldflags=-X 'main.DNSName=%s'", domain),"-o","dnser_c","client.go")
 	if _, err := cmdBuild.CombinedOutput(); err != nil {
 		return err
 	}
 
-	fmt.Printf("The client was successfully builded.\nPath: %s\n", clientSrcDir+"/client")
+	fmt.Printf("The client was successfully builded.\nPath: %s\n", clientSrcDir+"/dnser_c")
 	return nil
 }
 
