@@ -70,8 +70,7 @@ func main() {
 
  by: fedoik
  Repo: https://github.com/fedoik/dnser/tree/main
-
- 	Try for help: server -h
+ Try for help: server -h
 `
 
 	fmt.Println(banner)
