@@ -53,8 +53,9 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
+ ## Table of Contents
+<!--<details>
+  <summary>Table of Contents</summary> -->
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -76,7 +77,7 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
+<!-- </details> -->
 
 
 
