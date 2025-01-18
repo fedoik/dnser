@@ -13,10 +13,12 @@ import (
 )
 
 var DNSName string
+var nsserverhost string
+var nsserverport string
 
 func resolver(domain string, qtype uint16) error {
 	//ONLY FOR LINUX AND MACOS
-	config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")
+	// config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")
 
     m := new(dns.Msg)
     m.SetQuestion(dns.Fqdn(domain), qtype)
@@ -24,7 +26,7 @@ func resolver(domain string, qtype uint16) error {
 
     c := &dns.Client{}
 
-    response, _, err := c.Exchange(m, net.JoinHostPort(config.Servers[0], config.Port))
+    response, _, err := c.Exchange(m, net.JoinHostPort(nsserverhost, nsserverport))
     if err != nil {
         return err
     }
@@ -128,3 +130,4 @@ func main() {
 }
 
 // go build -ldflags="-X 'main.DNSName=my.dns.example.com'" client.go
+// go build -ldflags="-X 'main.DNSName=my.dns.example.com' -X 'main.nsserverhost=217.196.100.136' -X 'main.nsserverport=5553'" client.go

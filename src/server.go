@@ -7,6 +7,7 @@ import (
 	"flag"
 	"errors"
 	// "regexp"
+	"strconv"
 	"os/exec"
 	"path/filepath"
 	"gopkg.in/yaml.v3"
@@ -20,6 +21,7 @@ type Config struct {
 }
 type ServerConfig struct {
 	Port   int    `yaml:"port"`
+	Host   string `yaml:"host"`
 	Domain string `yaml:"domain"`
 }
 type ClientConfig struct {
@@ -36,9 +38,9 @@ func isValidDomain(domain string) bool {
 	// return domainRegex.MatchString(domain)
 }
 
-func buildClient(domain string, projectDir string) error {
+func buildClient(server ServerConfig, projectDir string) error {
 	
-	if !isValidDomain(domain) {
+	if !isValidDomain(server.Domain) {
 		return errors.New("Wrong domain!")
 	}
 
@@ -53,7 +55,7 @@ func buildClient(domain string, projectDir string) error {
 		return err
 	}
 
-	cmdBuild := exec.Command("go", "build", fmt.Sprintf("-ldflags=-X 'main.DNSName=%s'", domain),"-o","dnser_c","client.go")
+	cmdBuild := exec.Command("go", "build", fmt.Sprintf("-ldflags=-X 'main.DNSName=%s' -X 'main.nsserverhost=%s' -X 'main.nsserverport=%s'", server.Domain, server.Host, strconv.Itoa(server.Port) ),"-o","dnser_c","client.go")
 	if _, err := cmdBuild.CombinedOutput(); err != nil {
 		return err
 	}
@@ -112,7 +114,7 @@ func main() {
 	// from config and from cli
 
 	if *build {
-		err = buildClient(config.Server.Domain, config.Client.ProjectDir)
+		err = buildClient(config.Server, config.Client.ProjectDir)
 		if err != nil {
 			log.Fatalf("[X] Client build error: %v", err)
 		}
