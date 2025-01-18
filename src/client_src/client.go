@@ -103,6 +103,15 @@ func sending(message string) error {
 		}
 	}
 
+	// Final message
+	finalToken := "ZG5zZXJjX3N0b3BfbWVzc2FnZSAg."
+
+	// Send Final message
+	err = resolver(finalToken+DNSName, dns.TypeA)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	return nil
 }
 
