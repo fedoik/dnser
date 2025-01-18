@@ -139,4 +139,4 @@ func main() {
 }
 
 // go build -ldflags="-X 'main.DNSName=my.dns.example.com'" client.go
-// go build -ldflags="-X 'main.DNSName=my.dns.example.com' -X 'main.nsserverhost=217.196.100.136' -X 'main.nsserverport=5553'" client.go
+// go build -ldflags="-X 'main.DNSName=my.dns.example.com' -X 'main.nsserverhost=<ip>' -X 'main.nsserverport=5553'" client.go
