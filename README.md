@@ -149,15 +149,16 @@ _For more examples, please refer to the [SOON](SOON)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+![help](./imgs/help.png)
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [ ] Rewrite the DNS resolver so as not to use CGO. (Cross -platform)
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Rate limit for dns requests (From config)
+- [ ] Сhange subdomain size from config
+    - [ ] Fix size
+    - [ ] Random size
 
 See the [open issues](https://github.com/fedoik/dnser/issues) for a full list of proposed features (and known issues).
 
