@@ -1,7 +1,7 @@
 
 
 <!-- Improved compatibility of back to top link: See: https://github.com/fedoik/dnser/pull/73 -->
-<a id="readme-top"></a>
+<!-- <a id="readme-top"></a> -->
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -31,7 +31,12 @@
 <br />
 <div align="center">
 
+  <a href="https://github.com/fedoik/dnser">
+    <img src="imgs/help.png" alt="Logo">
+  </a>
+
   <h3 align="center">dnser</h3>
+
   <p align="center">
     Utility for data exfiltration using the DNS protocol!
     <br />
@@ -44,25 +49,6 @@
     ·
     <a href="https://github.com/fedoik/dnser/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
-
-  <a href="https://github.com/fedoik/dnser">
-    <img src="imgs/help.png" alt="Logo">
-  </a>
-
-  <!-- <h3 align="center">dnser</h3> -->
-
-  <!-- <p align="center">
-    Utility for data exfiltration using the DNS protocol!
-    <br />
-    <a href="https://github.com/fedoik/dnser"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/fedoik/dnser/demo/demo.mp4">View Demo</a>
-    ·
-    <a href="https://github.com/fedoik/dnser/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/fedoik/dnser/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-  </p> -->
 </div>
 
 
