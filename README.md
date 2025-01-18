@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/fedoik/dnser">
-    <img src="imgs/dnser.png" alt="Logo" width="220" height="220">
+    <img src="imgs/help.png" alt="Logo">
   </a>
 
   <h3 align="center">dnser</h3>
@@ -149,7 +149,7 @@ _For more examples, please refer to the [SOON](SOON)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-![help](./imgs/help.png)
+<!-- ![help](./imgs/help.png) -->
 
 <!-- ROADMAP -->
 ## Roadmap
