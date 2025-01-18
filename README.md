@@ -134,7 +134,7 @@ go version >= 1.21.5
    ```
 3. Build the server binary
    ```sh
-    #TODO
+    go build server.go
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
