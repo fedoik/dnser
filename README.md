@@ -154,7 +154,7 @@ _For more examples, please refer to the [SOON](SOON)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
+- [ ] Rewrite the DNS resolver so as not to use CGO. (Cross -platform)
 - [ ] Feature 2
 - [ ] Feature 3
     - [ ] Nested Feature
