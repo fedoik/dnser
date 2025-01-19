@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
+  <a id="readme-top"></a>
   <a href="https://github.com/fedoik/dnser">
     <img src="imgs/help.png" alt="Logo">
   </a>
