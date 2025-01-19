@@ -1,6 +1,6 @@
 server:
   port: 5553
-  host: 217.196.100.136
+  host: <ip>
   domain: evil.oanz.com
 
 client:
