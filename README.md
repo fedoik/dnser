@@ -43,7 +43,7 @@
     <a href="https://github.com/fedoik/dnser"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/fedoik/dnser/demo/demo.mp4">View Demo</a>
+    <a href="#demo">View Demo</a>
     ·
     <a href="https://github.com/fedoik/dnser/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -63,6 +63,9 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
+    </li>
+    <li>
+      <a href="#demo">Demo</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
