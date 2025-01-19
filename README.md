@@ -161,6 +161,7 @@ _For more examples, please refer to the [SOON](SOON)_
 - [ ] Сhange subdomain size from config
     - [ ] Fix size
     - [ ] Random size
+- [ ] Output into file
 
 See the [open issues](https://github.com/fedoik/dnser/issues) for a full list of proposed features (and known issues).
 

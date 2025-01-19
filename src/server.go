@@ -10,7 +10,10 @@ import (
 	// "regexp"
 	"strconv"
 	"os/exec"
+	"crypto/md5"
 	"path/filepath"
+	"encoding/hex"
+	"encoding/base64"
 	"gopkg.in/yaml.v3"
 	"github.com/miekg/dns"
 )
@@ -73,13 +76,31 @@ func buildClient(server ServerConfig, projectDir string) error {
 	return nil
 }
 
+func integrityCheck(message string)string{
+	hash := md5.New()
+    hash.Write([]byte(message))
+	return hex.EncodeToString(hash.Sum(nil))
+}
+
 func done() bool {
 	//check src
+	res_src := integrityCheck(file)
+	if crc != res_src {
+		log.Fatalf("[X] Integrity check failed!")
+		return false
+	}
 
 	//decode from base64
 
+	decoded, err := base64.StdEncoding.DecodeString(file)
+	if err != nil {
+		log.Fatalf("[X] Error decoding string: %v", err)
+		return false
+	}
+
 	//printfile
-	fmt.Println(file)
+	fmt.Println("Data: ")
+	fmt.Println(string(decoded))
 	file = ""
 	return true
 }
