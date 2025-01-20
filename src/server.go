@@ -72,7 +72,7 @@ func buildClient(server ServerConfig, projectDir string) error {
 		return err
 	}
 
-	fmt.Printf("The client was successfully builded.\nPath: %s\n", clientSrcDir+"/dnser_c")
+	fmt.Printf("The client was successfully built.\nPath: %s\n", clientSrcDir+"/dnser_c")
 	return nil
 }
 
