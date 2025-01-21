@@ -190,7 +190,7 @@ _For more examples, please refer to the [SOON](SOON)_
 
 - [ ] Rewrite the DNS resolver so as not to use CGO. (Cross -platform)
 - [ ] Rate limit for dns requests (From config)
-- [ ] Recursive resolver
+- [X] Recursive resolver
 - [ ] Сhange subdomain size from config
     - [ ] Fix size
     - [ ] Random size
